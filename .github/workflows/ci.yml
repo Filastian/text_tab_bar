@@ -1,0 +1,23 @@
+name: Publish to pub.dev
+
+on:
+  push:
+    branches: [ develop, 'release/[0-9]+.[0-9]+.[0-9]+']
+  pull_request:
+    branches: [ develop, 'release/[0-9]+.[0-9]+.[0-9]+']
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Check for warnings
+        run: flutter analyze
+
+    #   - name: Run tests
+    #     run: flutter test
