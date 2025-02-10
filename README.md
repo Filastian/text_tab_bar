@@ -28,7 +28,7 @@ dependencies:
 
 Import the package in your Dart file and customize the tab bar according to your needs:
 
-<img height="500" src="gif/basic_usage.gif" align="left" alt="Basic usage" title="Basic usage">
+<img height="500" src="https://github.com/Filastian/text_tab_bar/blob/develop/gif/basic_usage.gif" align="left" alt="Basic usage" title="Basic usage">
 
 ```dart
 DefaultTabController(
@@ -61,7 +61,7 @@ DefaultTabController(
 
 You can override the default text styles to one that suits you better, for example like this:
 
-<img height="500" src="gif/customizable_text.gif" align="left" alt="Customizable text" title="Customizable text">
+<img height="500" src="https://github.com/Filastian/text_tab_bar/blob/develop/gif/customizable_text.gif" align="left" alt="Customizable text" title="Customizable text">
 
 ```dart
 TextTabBar(
@@ -92,7 +92,7 @@ TextTabBar(
 
 You can use a floating animation that will look like a wave, flowing from one element to another:
 
-<img height="500" src="gif/floating_animation.gif" align="left" alt="Floating animation" title="Floating animation">
+<img height="500" src="https://github.com/Filastian/text_tab_bar/blob/develop/gif/floating_animation.gif" align="left" alt="Floating animation" title="Floating animation">
 
 ```dart
 TextTabBar(
@@ -121,7 +121,7 @@ TextTabBar(
 
 If you additionally want to customize the item, you can use a decorator:
 
-<img height="500" src="gif/decorator.gif" align="left" alt="Decorator" title="Decorator">
+<img height="500" src="https://github.com/Filastian/text_tab_bar/blob/develop/gif/decorator.gif" align="left" alt="Decorator" title="Decorator">
 
 ```dart
 TextTabBar(
