@@ -19,7 +19,7 @@ To use TextTabBar in your Flutter project, follow these steps:
 dependencies:
   flutter:
     sdk: flutter
-  text_tab_bar: ^0.0.1
+  text_tab_bar: ^0.1.0
 ```
 
 2. Run `flutter pub get` to install the package.
