@@ -19,7 +19,7 @@ To use TextTabBar in your Flutter project, follow these steps:
 dependencies:
   flutter:
     sdk: flutter
-  text_tab_bar: ^0.0.1
+  text_tab_bar: ^0.1.0
 ```
 
 2. Run `flutter pub get` to install the package.
@@ -27,6 +27,8 @@ dependencies:
 ## Usage
 
 Import the package in your Dart file and customize the tab bar according to your needs:
+
+<img height="500" src="gif/basic_usage.gif" align="left" alt="Basic usage" title="Basic usage">
 
 ```dart
 DefaultTabController(
@@ -53,9 +55,13 @@ DefaultTabController(
 )
 ```
 
+<br>
+
 #### Сustomizable text styles
 
 You can override the default text styles to one that suits you better, for example like this:
+
+<img height="500" src="gif/customizable_text.gif" align="left" alt="Customizable text" title="Customizable text">
 
 ```dart
 TextTabBar(
@@ -71,9 +77,22 @@ TextTabBar(
 )
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 #### Floating animation
 
 You can use a floating animation that will look like a wave, flowing from one element to another:
+
+<img height="500" src="gif/floating_animation.gif" align="left" alt="Floating animation" title="Floating animation">
 
 ```dart
 TextTabBar(
@@ -81,6 +100,53 @@ TextTabBar(
   isFloatingAnimation: true,
 )
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+#### Decorator
+
+If you additionally want to customize the item, you can use a decorator:
+
+<img height="500" src="gif/decorator.gif" align="left" alt="Decorator" title="Decorator">
+
+```dart
+TextTabBar(
+  ...,
+  decorator: (index, child) {
+    if (index % 3 != 0) {
+      return child;
+    }
+
+    return Stack(
+      children: [
+        child,
+        ColoredBadge(color: Colors.red),
+      ],
+    );
+  },
+)
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## License
 

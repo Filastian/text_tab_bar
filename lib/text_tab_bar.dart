@@ -2,6 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+/// Callback signature for additional element customization
+typedef TextTabBarItemDecorator = Widget Function(int index, Widget child);
+
 class TextTabBar extends StatefulWidget {
   /// Creates a Material Design primary tab bar.
   ///
@@ -15,6 +18,7 @@ class TextTabBar extends StatefulWidget {
     required this.tabs,
     this.controller,
     this.onTap,
+    this.decorator,
     this.selectedTextStyle,
     this.unselectedTextStyle,
     this.isFloatingAnimation = _defaultIsFloatingAnimation,
@@ -46,6 +50,28 @@ class TextTabBar extends StatefulWidget {
   /// callbacks should not make changes to the TabController since that would
   /// interfere with the default tap handler.
   final ValueChanged<int>? onTap;
+
+  /// A function that allows customization of each tab after it is built.
+  ///
+  /// The function takes two arguments:
+  /// - [index]: The index of the tab.
+  /// - [child]: The widget representing the tab as built by the default implementation.
+  ///
+  /// Returns the widget to display for the tab, allowing developers to wrap or modify
+  /// the original tab widget.
+  ///
+  /// Example usage:
+  /// ```dart
+  /// decorator: (index, child) {
+  ///   return Stack(
+  ///     children: [
+  ///       child,
+  ///       if (index == 0) Badge(child: Text('New')),
+  ///     ],
+  ///   );
+  /// },
+  /// ```
+  final TextTabBarItemDecorator? decorator;
 
   /// If non-null, the [TextStyle] for the selected tab.
   /// If not provided, a default style will be used.
@@ -206,6 +232,7 @@ class _TextTabBarState extends State<TextTabBar>
   void _updateTabController() {
     final newController = widget.controller ?? DefaultTabController.of(context);
     assert(() {
+      // ignore: unnecessary_null_comparison
       if (newController == null) {
         throw FlutterError('No TabController for ${widget.runtimeType}.\n'
             'When creating a ${widget.runtimeType}, you must either provide an explicit '
@@ -430,7 +457,9 @@ class _TextTabBarState extends State<TextTabBar>
           mainAxisAlignment: MainAxisAlignment.start,
           children: List.generate(
             widget.tabs.length,
-            _constructTabBarItem,
+            (index) => widget.decorator != null
+                ? widget.decorator!.call(index, _constructTabBarItem(index))
+                : _constructTabBarItem(index),
           ),
         ),
       ),
