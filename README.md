@@ -1,39 +1,91 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# TextTabBar
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+TextTabBar is an open-source Flutter package that provides a customizable tabbar where each element is an animated text. This will allow you to use a minimalistic and agreeable tab bar for your users.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+* :iphone: The behavior completely copies the behavior of the native tabbar;
+* :art: Fully customizable styles for elements;
+* :airplane: Various and smooth transition animations;
+* :shell: Simple and easy to use configuration.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use TextTabBar in your Flutter project, follow these steps:
+
+1. Add the dependency to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  text_tab_bar: ^0.0.1
+```
+
+2. Run `flutter pub get` to install the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Import the package in your Dart file and customize the tab bar according to your needs:
 
 ```dart
-const like = 'sample';
+DefaultTabController(
+  length: ...,
+  child: Builder(
+    builder: (context) {
+      final tabController = DefaultTabController.of(context);
+      return Column(
+        children: [
+          TextTabBar(
+            controller: tabController,
+            tabs: ...
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: tabController,
+              children: ...
+            ),
+          ),
+        ],
+      );
+    },
+  ),
+)
 ```
+
+#### Сustomizable text styles
+
+You can override the default text styles to one that suits you better, for example like this:
+
+```dart
+TextTabBar(
+  ...,
+  selectedTextStyle: TextStyle(
+    color: Colors.red,
+    fontSize: 24.0,
+  ),
+  unselectedTextStyle: TextStyle(
+    color: Colors.green,
+    fontSize: 18.0,
+  ),
+)
+```
+
+#### Floating animation
+
+You can use a floating animation that will look like a wave, flowing from one element to another:
+
+```dart
+TextTabBar(
+  ...,
+  isFloatingAnimation: true,
+)
+```
+
+## License
+
+This package is licensed under the MIT License. For more information, see the [LICENSE.md]([https://github.com/Filastian/text_tab_bar/blob/develop/LICENSE]) file.
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+For more information, visit the [TextTabBar GitHub repository](https://github.com/Filastian/text_tab_bar).
