@@ -206,6 +206,7 @@ class _TextTabBarState extends State<TextTabBar>
   void _updateTabController() {
     final newController = widget.controller ?? DefaultTabController.of(context);
     assert(() {
+      // ignore: unnecessary_null_comparison
       if (newController == null) {
         throw FlutterError('No TabController for ${widget.runtimeType}.\n'
             'When creating a ${widget.runtimeType}, you must either provide an explicit '
