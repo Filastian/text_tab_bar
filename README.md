@@ -28,6 +28,8 @@ dependencies:
 
 Import the package in your Dart file and customize the tab bar according to your needs:
 
+<img height="500" src="gif/basic_usage.gif" align="left" alt="Basic usage" title="Basic usage">
+
 ```dart
 DefaultTabController(
   length: ...,
@@ -53,9 +55,13 @@ DefaultTabController(
 )
 ```
 
+<br>
+
 #### Сustomizable text styles
 
 You can override the default text styles to one that suits you better, for example like this:
+
+<img height="500" src="gif/customizable_text.gif" align="left" alt="Customizable text" title="Customizable text">
 
 ```dart
 TextTabBar(
@@ -71,9 +77,22 @@ TextTabBar(
 )
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 #### Floating animation
 
 You can use a floating animation that will look like a wave, flowing from one element to another:
+
+<img height="500" src="gif/floating_animation.gif" align="left" alt="Floating animation" title="Floating animation">
 
 ```dart
 TextTabBar(
@@ -81,6 +100,22 @@ TextTabBar(
   isFloatingAnimation: true,
 )
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## License
 
