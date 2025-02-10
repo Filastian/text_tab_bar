@@ -117,6 +117,37 @@ TextTabBar(
 <br>
 <br>
 
+#### Decorator
+
+If you additionally want to customize the item, you can use a decorator:
+
+<img height="500" src="gif/decorator.gif" align="left" alt="Decorator" title="Decorator">
+
+```dart
+TextTabBar(
+  ...,
+  decorator: (index, child) {
+    if (index % 3 != 0) {
+      return child;
+    }
+
+    return Stack(
+      children: [
+        child,
+        ColoredBadge(color: Colors.red),
+      ],
+    );
+  },
+)
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## License
 
 This package is licensed under the MIT License. For more information, see the [LICENSE.md]([https://github.com/Filastian/text_tab_bar/blob/develop/LICENSE]) file.
