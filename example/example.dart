@@ -25,6 +25,38 @@ class MyApp extends StatelessWidget {
                   TextTabBar(
                     tabs: List.generate(20, (index) => 'Tab ${index + 1}'),
                     controller: tabController,
+                    selectedTextStyle: TextStyle(
+                      color: Colors.red,
+                      fontSize: 24.0,
+                    ),
+                    unselectedTextStyle: TextStyle(
+                      color: Colors.green,
+                      fontSize: 18.0,
+                    ),
+                    isFloatingAnimation: true,
+                    decorator: (index, child) {
+                      if (index % 3 != 0) {
+                        return child;
+                      }
+
+                      return Stack(
+                        children: [
+                          child,
+                          Positioned(
+                            right: 0,
+                            top: 0,
+                            child: Container(
+                              width: 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   Expanded(
                     child: TabBarView(

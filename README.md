@@ -19,7 +19,7 @@ To use TextTabBar in your Flutter project, follow these steps:
 dependencies:
   flutter:
     sdk: flutter
-  text_tab_bar: ^0.0.1
+  text_tab_bar: ^0.1.0
 ```
 
 2. Run `flutter pub get` to install the package.
@@ -110,6 +110,37 @@ TextTabBar(
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+#### Decorator
+
+If you additionally want to customize the item, you can use a decorator:
+
+<img height="500" src="gif/decorator.gif" align="left" alt="Decorator" title="Decorator">
+
+```dart
+TextTabBar(
+  ...,
+  decorator: (index, child) {
+    if (index % 3 != 0) {
+      return child;
+    }
+
+    return Stack(
+      children: [
+        child,
+        ColoredBadge(color: Colors.red),
+      ],
+    );
+  },
+)
+```
+
 <br>
 <br>
 <br>
